@@ -42,8 +42,10 @@ def get_percentile_value(rsp_avarage: list, rsp_total: int):
 
 
 def write_rsp_time_percentile_ranges(percentile_value: dict, file_name: str):
+    t = time.localtime()
+    current_time = time.strftime("%H:%M", t)
     json_obj = json.dumps(percentile_value)
-    with open(f"{config_obj['wmts'].root_dir}/{file_name}-time_percentile_ran.json", 'w') as f:
+    with open(f"{config_obj['wmts'].root_dir}/{file_name}-{current_time}-RPS.json", 'w') as f:
         f.write(json_obj)
 
 
@@ -79,7 +81,7 @@ def generate_name(name: str):
 
 
 """
-Read me .
+Read me . How to implement the function
 import the file to Your test class 
 In configurion file add dir_root variable and give him path to the folder in your Environment 
 
